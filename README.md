@@ -23,6 +23,7 @@ CREATE TABLE table_try1 (
   password varchar(120)
 );
 ```
+
 Check syntax of MySQL. For example here:
 - [MySQL Syntax Check](https://www.piliapp.com/mysql-syntax-check/)
 
