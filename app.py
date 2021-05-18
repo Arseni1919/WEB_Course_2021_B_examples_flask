@@ -193,7 +193,7 @@ def catalog_func():
                            current_method=current_method)
 
 
-@app.route('/menu')
+@app.route('/menu', methods=['GET'])
 def hello_menu():
     return 'Welcome to the MENU page'
 
