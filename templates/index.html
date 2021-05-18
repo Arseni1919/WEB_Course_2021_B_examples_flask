@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    {% include('include_css.html') %}
+</head>
+<body>
+{% block header %}
+        {% set page_name = 'Homepage!' %}
+        {% include('header.html') %}
+{% endblock %}
+
+
+
+
+    {% from 'header.html' import header_message %}
+    <h4>Message from header: {{ header_message }}</h4>
+
+{#    <h1>Welcome to our website, {{ name | default('Stranger', true) | upper }}!</h1>#}
+    {% if curr_user.firstname %}
+        <h1 {% if curr_user.class %} class="{{ curr_user.class }}" {% endif %}>Hello {{ curr_user.firstname }} </h1>
+    {% else %}
+        <h1>Hello, Stranger!</h1>
+    {% endif %}
+
+    {% block Main %}
+
+    <h2>My hobbies</h2>
+    <ol>
+        {% for hobby in hobbies %}
+            <li>{{ hobby }}</li>
+        {% endfor %}
+    </ol>
+
+    <h2>My portfolio Details</h2>
+    <ul>
+        {% for det, val in curr_user.items() %}
+            <li>{{ det }}: {{ val }}</li>
+        {% endfor %}
+    </ul>
+
+
+
+    {% endblock %}
+
+{#    <h2>Degrees: {{ degree[0] }}, {{ degree[1] }}</h2>#}
+</body>
+</html>

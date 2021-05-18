@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block header %}
+        {% set page_name = 'Catalog!' %}
+        {% include('header.html') %}
+{% endblock %}
+
+{% block Main %}
+    <h2>Current Request Method: {{ current_method }}</h2>
+    <h2>Current User's Details:</h2>
+    {% if user_name %}
+
+        <h3>Welcome, {{ user_name }} {{ last_name }}!</h3>
+
+    {% else %}
+        <h3>Welcome, stranger!</h3>
+
+        <form method="POST" action="/catalog">
+            <input name="username" type="text" placeholder="name">
+            <input name="lastname" type="text" placeholder="last name">
+            <input type="submit">
+        </form>
+
+    {% endif %}
+{% endblock %}
