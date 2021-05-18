@@ -19,6 +19,7 @@ def interact_db(query, query_type: str):
                                          database='myflaskappdb')
     cursor = connection.cursor(named_tuple=True)
     cursor.execute(query)
+    #
 
     if query_type == 'commit':
         # Use for INSERT UPDATE, DELETE statements.
