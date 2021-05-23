@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block header %}
-        {% set page_name = 'Catalog!' %}
+        {% set page_name = 'Catalog' %}
         {% include('header.html') %}
 {% endblock %}
 
@@ -15,7 +15,7 @@
     {% else %}
         <h3>Welcome, stranger!</h3>
 
-        <form method="POST" action="/catalog">
+        <form method="POST" action="/log_in">
             <input name="username" type="text" placeholder="name">
             <input name="lastname" type="text" placeholder="last name">
             <input type="submit">

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert User</title>
+</head>
+<body>
+    <h4>Request method: {{ req_method }}</h4>
+    <h3>The Form To Add A New User</h3>
+    <form method="POST" action="/insert_user">
+        <input name="name" type="text" placeholder="your name">
+        <input name="email" type="email" placeholder="your email">
+        <input name="password" type="password">
+        <input type="submit">
+    </form>
+</body>
+</html>

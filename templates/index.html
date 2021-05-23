@@ -7,24 +7,23 @@
 </head>
 <body>
 {% block header %}
-        {% set page_name = 'Homepage!' %}
+        {% set page_name = 'Homepage' %}
         {% include('header.html') %}
 {% endblock %}
 
 
-
-
-    {% from 'header.html' import header_message %}
-    <h4>Message from header: {{ header_message }}</h4>
+    {% block Main %}
+        {% from 'header.html' import header_message %}
+        <h4>{{ header_message }}</h4>
 
 {#    <h1>Welcome to our website, {{ name | default('Stranger', true) | upper }}!</h1>#}
-    {% if curr_user.firstname %}
-        <h1 {% if curr_user.class %} class="{{ curr_user.class }}" {% endif %}>Hello {{ curr_user.firstname }} </h1>
+    {% if session['username'] %}
+        <h1>Hello {{ session['username'] }}! </h1>
     {% else %}
         <h1>Hello, Stranger!</h1>
     {% endif %}
 
-    {% block Main %}
+
 
     <h2>My hobbies</h2>
     <ol>
@@ -33,14 +32,14 @@
         {% endfor %}
     </ol>
 
+        {% if session['username'] %}
     <h2>My portfolio Details</h2>
     <ul>
-        {% for det, val in curr_user.items() %}
+        {% for det, val in session.items() %}
             <li>{{ det }}: {{ val }}</li>
         {% endfor %}
     </ul>
-
-
+        {% endif %}
 
     {% endblock %}
 

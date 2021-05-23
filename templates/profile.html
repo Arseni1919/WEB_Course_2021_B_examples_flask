@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block header %}
+        {% set page_name = 'Profile Page' %}
+        {% include('header.html') %}
+{% endblock %}
+
+{% block Main %}
+    {% if fill_form %}
+        <form method="POST" action="/get_user_info">
+            <input name="user_id" type="text" placeholder="user's id">
+            <input type="submit">
+        </form>
+    {% else %}
+        <h3>Welcome to profile of user with ID: {{ user_id }}</h3>
+{#        <h4>Email: {{ email }}</h4>#}
+    {% endif %}
+    {% if query_result %}
+        {{ query_result }}
+    {% endif %}
+{% endblock %}

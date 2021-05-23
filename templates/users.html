@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {% for user in users %}
-        <h3>{{ user }}</h3>
-    {% endfor %}
-</body>
-</html>
+{% extends 'index.html' %}
+
+{% block header %}
+        {% set page_name = 'Users Page' %}
+        {% include('header.html') %}
+{% endblock %}
+
+{% block Main %}
+    <h1>Users</h1>
+    <ul>
+        {% for user in users %}
+            <li>[ID: {{ user.id }}] User's name: {{ user.name | upper }}, user's email: {{ user.email }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Insert User:</h3>
+    <form method="POST" action="/insert_user">
+        <input name="name" type="text" placeholder="your name">
+        <input name="email" type="email" placeholder="your email">
+        <input name="password" type="password">
+        <input type="submit">
+    </form>
+
+    <h3>Delete User:</h3>
+    <form method="POST" action="/delete_user">
+        <input name="id" type="text" placeholder="id of the user">
+        <input type="submit">
+    </form>
+{% endblock %}

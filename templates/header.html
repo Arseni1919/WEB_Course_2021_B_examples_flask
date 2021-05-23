@@ -1,7 +1,16 @@
 <header>
-    {% set header_message = 'I am from Header' %}
+    {% set header_message = 'Welcome!:)' %}
     <hr>
     <h3>You are in {{ page_name }}</h3>
-    <h3>Here is the Header of the page</h3>
+    <div>
+        {% if session['username'] %}
+            <a href="/log_out">Log out</a>
+        {% else %}
+            <a href="/log_in">Log in</a>
+        {% endif %}
+    </div>
+    <a href="/index">Home</a> | <a href="/about">About</a>
+    | <a href="/catalog">Catalog</a> | <a href="/users">Users</a>
+    | <a href="/profile">Profile</a>
     <hr>
 </header>

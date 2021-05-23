@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About</title>
+{% extends 'index.html' %}
 
-</head>
-<body>
-    {% set page_name = 'About!' %}
-    {% include('header.html') %}
-    <h1>I am in About!</h1>
+{% block header %}
+        {% set page_name = 'About Page' %}
+        {% include('header.html') %}
+{% endblock %}
+
+{% block Main %}
+    <h1>About</h1>
     {% if session['username'] %}
         <h2>Active user: {{ session['username'] }} {{ session['lastname'] }}</h2>
     {% endif %}
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block header %}
+        {% set page_name = 'Log In Page' %}
+        {% include('header.html') %}
+{% endblock %}
+
+{% block Main %}
+    <form method="POST" action="/log_in">
+        <input name="username" type="text" placeholder="name">
+        <input name="lastname" type="text" placeholder="last name">
+        <input type="submit">
+    </form>
+{% endblock %}
