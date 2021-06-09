@@ -6,16 +6,23 @@
 {% endblock %}
 
 {% block Main %}
-    {% if fill_form %}
-        <form method="POST" action="/get_user_info">
-            <input name="user_id" type="text" placeholder="user's id">
-            <input type="submit">
-        </form>
+    <h2>Welcome to Profile Page!</h2>
+    {% if user_exists %}
+        <h3>There is such user! This is Profile of user with ID: {{ user_id }}</h3>
+        <h3>The category to check is: {{ category }}</h3>
     {% else %}
-        <h3>Welcome to profile of user with ID: {{ user_id }}</h3>
+        <h3>Insert Correct User ID.</h3>
+    {% endif %}
+{#    {% if fill_form %}#}
+{#        <form method="POST" action="/get_user_info">#}
+{#            <input name="user_id" type="text" placeholder="user's id">#}
+{#            <input type="submit">#}
+{#        </form>#}
+{#    {% else %}#}
+{#        <h3>Welcome to profile of user with ID: {{ user_id }}</h3>#}
 {#        <h4>Email: {{ email }}</h4>#}
-    {% endif %}
-    {% if query_result %}
-        {{ query_result }}
-    {% endif %}
+{#    {% endif %}#}
+{#    {% if query_result %}#}
+{#        {{ query_result }}#}
+{#    {% endif %}#}
 {% endblock %}
